@@ -2,6 +2,7 @@ package christmas.model;
 
 import static christmas.constant.FreeGift.FREE_GIFT_EVENT;
 import static christmas.constant.Number.INITIAL_VALUE;
+import static christmas.constant.Number.NEGATIVE;
 import static christmas.constant.message.Notice.NONE;
 
 import christmas.constant.Badge;
@@ -33,7 +34,7 @@ public class Benefit {
             details.put(discount.getKey().getName(), discount.getValue());
         }
         if (!freeGift.getName().equals(NONE)) {
-            details.put(FREE_GIFT_EVENT, freeGift.getPrice());
+            details.put(FREE_GIFT_EVENT, NEGATIVE * freeGift.getPrice());
         }
         return details;
     }
@@ -47,7 +48,7 @@ public class Benefit {
     }
 
     public void applyDiscount(String discount, int price) {
-        discounts.replace(Discount.findByName(discount), price);
+        discounts.replace(Discount.findByName(discount), NEGATIVE * price);
         totalBenefitPrice -= price;
     }
 
