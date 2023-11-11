@@ -35,14 +35,14 @@ public class MainController {
 
     private void checkEventExclusion() {
         if (orders.inquireTotalListPrice() < EVENT_APPLY_MIN_PRICE) {
-            outputView.printEventNoticeTitle(visitDate.inquireVisitDate().getDayOfMonth());
-            outputView.printEventExceptionNotice();
             eventExcludedResult();
             Console.close();
         }
     }
 
     private void eventExcludedResult() {
+        outputView.printEventNoticeTitle(visitDate.inquireVisitDate().getDayOfMonth());
+        outputView.printEventExceptionNotice();
         outputView.printOrders(orders.inquireOrders());
         outputView.printTotalListPrice(orders.inquireTotalListPrice());
         outputView.printNoFreeGift();
