@@ -4,6 +4,7 @@ import christmas.constant.Discount;
 import christmas.constant.Menu;
 import java.time.LocalDate;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class DayDiscountEvent implements DiscountEvent {
     protected final LocalDate visitDate;
@@ -32,9 +33,9 @@ public class DayDiscountEvent implements DiscountEvent {
 
     protected int numberOfTargetMenu(String type) {
         int number = 0;
-        for (Menu menu : orders.keySet()) {
-            if (menu.getType().equals(type)) {
-                number++;
+        for (Entry<Menu, Integer> order : orders.entrySet()) {
+            if (order.getKey().getType().equals(type)) {
+                number += order.getValue();
             }
         }
         return number;
