@@ -14,7 +14,7 @@ public class SpecialDiscountEvent implements DiscountEvent {
     }
 
     @Override
-    public boolean appliable() {
+    public boolean applicable() {
         return (DayUtil.isSunday(visitDate) || DayUtil.isChristmas(visitDate));
     }
 

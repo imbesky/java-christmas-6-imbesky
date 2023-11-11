@@ -46,28 +46,28 @@ public class EventController {
 
     private void checkChristmasDdayDiscount() {
         DiscountEvent discountEvent = new ChristmasDdayDiscountEvent(visitDate.inquireVisitDate());
-        if (discountEvent.appliable()) {
+        if (discountEvent.applicable()) {
             benefit.applyDiscount(discountEvent.type().getName(), discountEvent.price());
         }
     }
 
     private void checkWeekdayDiscount() {
         DiscountEvent discountEvent = new WeekdayDiscountEvent(visitDate.inquireVisitDate(), orders.inquireOrders());
-        if (discountEvent.appliable()) {
+        if (discountEvent.applicable()) {
             benefit.applyDiscount(discountEvent.type().getName(), discountEvent.price());
         }
     }
 
     private void checkWeekendDiscount() {
         DiscountEvent discountEvent = new WeekendDiscountEvent(visitDate.inquireVisitDate(), orders.inquireOrders());
-        if (discountEvent.appliable()) {
+        if (discountEvent.applicable()) {
             benefit.applyDiscount(discountEvent.type().getName(), discountEvent.price());
         }
     }
 
     private void checkSpecialDiscount() {
         DiscountEvent discountEvent = new SpecialDiscountEvent(visitDate.inquireVisitDate());
-        if (discountEvent.appliable()) {
+        if (discountEvent.applicable()) {
             benefit.applyDiscount(discountEvent.type().getName(), discountEvent.price());
         }
     }

@@ -16,7 +16,7 @@ public class DayDiscountEvent implements DiscountEvent {
     }
 
     @Override
-    public boolean appliable() {
+    public boolean applicable() {
         return false;
     }
 

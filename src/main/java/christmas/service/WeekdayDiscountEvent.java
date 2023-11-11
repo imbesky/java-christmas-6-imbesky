@@ -15,7 +15,7 @@ public class WeekdayDiscountEvent extends DayDiscountEvent {
     }
 
     @Override
-    public boolean appliable() {
+    public boolean applicable() {
         return DayUtil.isWeekDay(visitDate);
     }
 

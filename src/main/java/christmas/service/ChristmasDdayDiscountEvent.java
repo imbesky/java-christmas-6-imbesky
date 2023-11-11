@@ -18,7 +18,7 @@ public class ChristmasDdayDiscountEvent implements DiscountEvent {
     }
 
     @Override
-    public boolean appliable() {
+    public boolean applicable() {
         return DayUtil.isBetween(DDAY_DISCOUNT_START_DATE, DDAY_DISCOUNT_END_DATE, visitDate);
     }
 

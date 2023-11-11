@@ -3,7 +3,7 @@ package christmas.service;
 import christmas.constant.Discount;
 
 public interface DiscountEvent {
-    boolean appliable();
+    boolean applicable();
 
     Discount type();
 
