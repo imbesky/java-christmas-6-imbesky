@@ -8,6 +8,7 @@ import java.time.LocalDate;
 
 public class SpecialDiscountEvent implements DiscountEvent {
     private final LocalDate visitDate;
+    private final int INITIAL_DISCOUNT_PRICE = 1_000;
 
     public SpecialDiscountEvent(LocalDate visitDate) {
         this.visitDate = visitDate;
@@ -25,6 +26,6 @@ public class SpecialDiscountEvent implements DiscountEvent {
 
     @Override
     public int price() {
-        return 0;
+        return INITIAL_DISCOUNT_PRICE;
     }
 }
