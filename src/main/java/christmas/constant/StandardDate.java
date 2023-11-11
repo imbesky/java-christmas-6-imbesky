@@ -11,7 +11,7 @@ public class StandardDate {
 
     public static final LocalDate EVENT_START_DATE = LocalDate.of(YEAR, MONTH, FIRST);
     public static final LocalDate EVENT_END_DATE = LocalDate.of(YEAR, MONTH, THIRTY_FIRST);
-    public static final LocalDate DDAY_DISCOUNT_START_DATE = EVENT_START_DATE;
+    public static final LocalDate DDAY_DISCOUNT_START_DATE = LocalDate.of(YEAR, MONTH, FIRST);
     public static final LocalDate DDAY_DISCOUNT_END_DATE = LocalDate.of(YEAR, MONTH, TWENTY_FIFTH);
-    public static final LocalDate CHRISTMAS = DDAY_DISCOUNT_END_DATE;
+    public static final LocalDate CHRISTMAS = LocalDate.of(YEAR, MONTH, TWENTY_FIFTH);
 }
