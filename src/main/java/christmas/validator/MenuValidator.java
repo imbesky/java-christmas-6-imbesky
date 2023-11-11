@@ -18,7 +18,7 @@ public class MenuValidator {
     public void isNotDuplicateMenu(Map<Menu, Integer> orders, String menu) {
         if (orders.containsKey(Menu.findByName(menu))) {
             System.out.println(DUPLICATE_MENU.getMessage());
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(INVALIDATE_ORDER.getMessage());
         }
     }
 }
