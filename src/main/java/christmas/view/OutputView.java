@@ -10,11 +10,12 @@ import static christmas.constant.message.Notice.ASK_ORDER;
 import static christmas.constant.message.Notice.ASK_VISIT_DATE;
 import static christmas.constant.message.Notice.BADGE_HEADER;
 import static christmas.constant.message.Notice.BENEFIT_DETAIL_HEADER;
-import static christmas.constant.message.Notice.EVENT_EXCEPTION;
+import static christmas.constant.message.Notice.EVENT_EXCLUSION;
 import static christmas.constant.message.Notice.EVENT_NOTICE_TITLE;
 import static christmas.constant.message.Notice.EXPECTED_BILL_HEADER;
 import static christmas.constant.message.Notice.FREE_GIFT_HEADER;
 import static christmas.constant.message.Notice.GREETING;
+import static christmas.constant.message.Notice.LINE_DIVIDER;
 import static christmas.constant.message.Notice.NONE;
 import static christmas.constant.message.Notice.ORDERED_MENU_HEADER;
 import static christmas.constant.message.Notice.TOTAL_BENEFIT_PRICE_HEADER;
@@ -45,7 +46,7 @@ public class OutputView {
     }
 
     public void printEventExceptionNotice() {
-        System.out.println(EVENT_EXCEPTION);
+        System.out.println(EVENT_EXCLUSION);
     }
 
     public void printEventNoticeTitle(int visitDate) {
@@ -53,6 +54,7 @@ public class OutputView {
     }
 
     public void printOrders(Map<Menu, Integer> orders) {
+        System.out.println(LINE_DIVIDER);
         System.out.println(ORDERED_MENU_HEADER);
         for (Entry<Menu, Integer> order : orders.entrySet()) {
             System.out.println(String
@@ -62,12 +64,14 @@ public class OutputView {
     }
 
     public void printTotalListPrice(int totalListPrice) {
+        System.out.println(LINE_DIVIDER);
         System.out.println(TOTAL_PRICE_HEADER);
         DecimalFormat price = new DecimalFormat(PRICE_FORMAT);
         System.out.println(price.format(totalListPrice).concat(WON));
     }
 
     public void printFreeGift(String freeGift) {
+        System.out.println(LINE_DIVIDER);
         System.out.println(FREE_GIFT_HEADER);
         System.out.println(String
                 .format(FREE_GIFT_FORMAT, freeGift, FREE_GIFT_NUMBER)
@@ -75,11 +79,13 @@ public class OutputView {
     }
 
     public void printNoFreeGift() {
+        System.out.println(LINE_DIVIDER);
         System.out.println(FREE_GIFT_HEADER);
         System.out.println(NONE);
     }
 
     public void printBenefitDetail(Map<String, Integer> details) {
+        System.out.println(LINE_DIVIDER);
         System.out.println(BENEFIT_DETAIL_HEADER);
         DecimalFormat price = new DecimalFormat(PRICE_FORMAT);
         for (Entry<String, Integer> detail : details.entrySet()) {
@@ -91,15 +97,18 @@ public class OutputView {
     }
 
     public void printTotalBenefitPrice(int totalBenefitPrice) {
+        System.out.println(LINE_DIVIDER);
         System.out.println(TOTAL_BENEFIT_PRICE_HEADER);
         DecimalFormat price = new DecimalFormat(PRICE_FORMAT);
         System.out.println(price.format(totalBenefitPrice).concat(WON));
     }
 
     public void printNoBenefit() {
+        System.out.println(LINE_DIVIDER);
         System.out.println(BENEFIT_DETAIL_HEADER);
         System.out.println(NONE);
 
+        System.out.println(LINE_DIVIDER);
         System.out.println(TOTAL_BENEFIT_PRICE_HEADER);
         DecimalFormat price = new DecimalFormat(PRICE_FORMAT);
         System.out.println(price.format(INITIAL_VALUE).concat(WON));
@@ -107,12 +116,14 @@ public class OutputView {
 
 
     public void printExpectedBill(int bill) {
+        System.out.println(LINE_DIVIDER);
         System.out.println(EXPECTED_BILL_HEADER);
         DecimalFormat price = new DecimalFormat(PRICE_FORMAT);
         System.out.println(price.format(bill).concat(WON));
     }
 
     public void printBadge(String badge) {
+        System.out.println(LINE_DIVIDER);
         System.out.println(BADGE_HEADER);
         System.out.println(badge);
     }
