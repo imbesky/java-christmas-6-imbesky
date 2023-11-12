@@ -26,7 +26,7 @@ public class Order {
             validateNumber(order[SECOND_INDEX]);
             saveOrder(Menu.findByName(order[FIRST_INDEX]), Integer.parseInt(order[SECOND_INDEX]));
         }
-        validateOrder(inputOrders);
+        validateOrder();
     }
 
     public Map<Menu, Integer> inquireOrders() {
@@ -56,7 +56,7 @@ public class Order {
         validator.isInRange(number);
     }
 
-    private void validateOrder(List<String[]> orders) {
+    private void validateOrder() {
         OrderValidator validator = new OrderValidator();
         validator.isProperOrder(this.orders);
         validator.inOrderRange(this.orders);
