@@ -2,6 +2,7 @@ package christmas.service;
 
 import static christmas.constant.Discount.WEEKDAY;
 import static christmas.constant.MenuType.DESSERT;
+import static christmas.constant.Number.INITIAL_VALUE;
 
 import christmas.constant.Discount;
 import christmas.constant.Menu;
@@ -16,7 +17,7 @@ public class WeekdayDiscountEvent extends DayDiscountEvent {
 
     @Override
     public boolean applicable() {
-        return DayUtil.isWeekDay(visitDate);
+        return (DayUtil.isWeekDay(visitDate) && numberOfTargetMenu(DESSERT) != INITIAL_VALUE);
     }
 
     @Override
