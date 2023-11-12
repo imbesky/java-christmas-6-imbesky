@@ -10,15 +10,15 @@ public class NumberValidator {
         try {
             Integer.parseInt(input);
         } catch (NumberFormatException e) {
-            System.out.println(NUMBER_NOT_NUMERIC.getMessage());
-            throw new IllegalArgumentException(INVALIDATE_ORDER.getMessage());
+            throw new IllegalArgumentException(INVALIDATE_ORDER.getMessage()
+                    .concat(NUMBER_NOT_NUMERIC.getMessage()));
         }
     }
 
     public void isInRange(String input) {
         if (Integer.parseInt(input) < MIN_ORDER) {
-            System.out.println(NUMBER_UNDER_MIN.getMessage());
-            throw new IllegalArgumentException(INVALIDATE_ORDER.getMessage());
+            throw new IllegalArgumentException(INVALIDATE_ORDER.getMessage()
+                    .concat(NUMBER_UNDER_MIN.getMessage()));
         }
     }
 }

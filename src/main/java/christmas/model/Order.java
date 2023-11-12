@@ -5,7 +5,7 @@ import static christmas.constant.Number.INITIAL_VALUE;
 import static christmas.constant.Number.PROPER_ORDER_LENGTH;
 import static christmas.constant.Number.SECOND_INDEX;
 import static christmas.constant.message.Error.INVALIDATE_ORDER;
-import static christmas.constant.message.Tip.FORMAT_ERROR;
+import static christmas.constant.message.Tip.INVALIDATE_FORMAT;
 
 import christmas.constant.Menu;
 import christmas.validator.MenuValidator;
@@ -39,8 +39,8 @@ public class Order {
 
     private void validateInputFormat(String[] order) {
         if (order.length != PROPER_ORDER_LENGTH) {
-            System.out.println(FORMAT_ERROR.getMessage());
-            throw new IllegalArgumentException(INVALIDATE_ORDER.getMessage());
+            throw new IllegalArgumentException(INVALIDATE_ORDER.getMessage()
+                    .concat(INVALIDATE_FORMAT.getMessage()));
         }
     }
 

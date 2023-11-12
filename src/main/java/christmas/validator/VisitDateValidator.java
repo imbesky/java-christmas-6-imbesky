@@ -11,16 +11,16 @@ public class VisitDateValidator {
         try {
             Integer.parseInt(input);
         } catch (NumberFormatException e) {
-            System.out.println(DATE_NOT_NUMERIC.getMessage());
-            throw new IllegalArgumentException(INVALIDATE_DATE.getMessage());
+            throw new IllegalArgumentException(INVALIDATE_DATE.getMessage()
+                    .concat(DATE_NOT_NUMERIC.getMessage()));
         }
     }
 
     public void isProperDateRange(String input) {
         int date = Integer.parseInt(input);
         if (date < FIRST || date > THIRTY_FIRST) {
-            System.out.println(DATE_NOT_IN_RANGE.getMessage());
-            throw new IllegalArgumentException(INVALIDATE_DATE.getMessage());
+            throw new IllegalArgumentException(INVALIDATE_DATE.getMessage()
+                    .concat(DATE_NOT_IN_RANGE.getMessage()));
         }
     }
 }

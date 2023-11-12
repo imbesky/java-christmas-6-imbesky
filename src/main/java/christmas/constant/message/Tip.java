@@ -7,12 +7,12 @@ public enum Tip {
     DUPLICATE_MENU("중복된 메뉴입니다."),
     NUMBER_NOT_NUMERIC("개수로는 숫자만 입력 가능합니다."),
     NUMBER_UNDER_MIN("개수는 1 이상이어야 합니다."),
-    FORMAT_ERROR("형식이 예시와 다릅니다."),
+    INVALIDATE_FORMAT("형식이 예시와 다릅니다."),
     ONLY_BEVERAGE("음료만 주문할 수 없습니다."),
     ORDER_OVER_MAX("메뉴는 20개를 초과해 주문할 수 없습니다.");
 
     private final String tip;
-    private static final String TIP = "[TIP] ";
+    private static final String TIP = "\n[TIP] ";
 
     Tip(String tip) {
         this.tip = tip;

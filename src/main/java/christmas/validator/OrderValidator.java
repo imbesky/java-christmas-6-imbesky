@@ -17,8 +17,8 @@ public class OrderValidator {
                 return;
             }
         }
-        System.out.println(ONLY_BEVERAGE.getMessage());
-        throw new IllegalArgumentException(INVALIDATE_ORDER.getMessage());
+        throw new IllegalArgumentException(INVALIDATE_ORDER.getMessage()
+                .concat(ONLY_BEVERAGE.getMessage()));
     }
 
     public void inOrderRange(Map<Menu, Integer> orders) {
@@ -27,8 +27,8 @@ public class OrderValidator {
             orderedNumber += orders.get(menu);
         }
         if (orderedNumber > MAX_ORDER) {
-            System.out.println(ORDER_OVER_MAX.getMessage());
-            throw new IllegalArgumentException(INVALIDATE_ORDER.getMessage());
+            throw new IllegalArgumentException(INVALIDATE_ORDER.getMessage()
+                    .concat(ORDER_OVER_MAX.getMessage()));
         }
     }
 }
