@@ -31,8 +31,8 @@ public class MainController {
     private void saveInput() {
         inputController = new InputController();
         outputView.printGreeting();
-        visitDate = inputController.inputVisitDate();
-        orders = inputController.inputOrder();
+        visitDate = inputController.saveVisitDate();
+        orders = inputController.saveOrder();
     }
 
     private boolean checkEventExclusion() {
