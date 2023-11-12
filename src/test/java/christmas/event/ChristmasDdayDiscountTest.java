@@ -16,8 +16,10 @@ public class ChristmasDdayDiscountTest {
         final VisitDate visitDate = new VisitDate("5");
         final DiscountEvent discountEvent = new ChristmasDdayDiscountEvent(visitDate.inquireVisitDate());
 
+        final boolean apply = discountEvent.applicable();
         final int discountPrice = discountEvent.price();
 
+        assertThat(apply).isEqualTo(true);
         assertThat(discountPrice).isEqualTo(1_400);
     }
 
