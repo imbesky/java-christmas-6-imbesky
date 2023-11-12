@@ -20,8 +20,10 @@ public class WeekendDiscountTest {
         final DiscountEvent discountEvent = new WeekendDiscountEvent(visitDate.inquireVisitDate(),
                 orders.inquireOrders());
 
+        final boolean apply = discountEvent.applicable();
         final int price = discountEvent.price();
 
+        assertThat(apply).isEqualTo(true);
         assertThat(price).isEqualTo(20_230);
     }
 
@@ -34,9 +36,9 @@ public class WeekendDiscountTest {
         final DiscountEvent discountEvent = new WeekendDiscountEvent(visitDate.inquireVisitDate(),
                 orders.inquireOrders());
 
-        final int price = discountEvent.price();
+        final boolean apply = discountEvent.applicable();
 
-        assertThat(price).isEqualTo(0);
+        assertThat(apply).isEqualTo(false);
     }
 
     @Test
