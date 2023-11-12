@@ -14,7 +14,7 @@ public class PrintTest {
         Console.close();
     }
 
-    final protected OutputStream out = new ByteArrayOutputStream();
+    protected OutputStream out;
 
     final protected void run(String... args) {
         handleInput(args);
@@ -29,6 +29,7 @@ public class PrintTest {
     }
 
     final protected void initializeOutput() {
+        out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
     }
 
