@@ -23,6 +23,6 @@ public class DayUtil {
     }
 
     public static boolean isBetween(LocalDate startDate, LocalDate endDate, LocalDate date) {
-        return (!date.isBefore(endDate) && !date.isAfter(startDate));
+        return (date.isBefore(endDate) && date.isAfter(startDate));
     }
 }
