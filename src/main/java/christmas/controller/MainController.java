@@ -3,7 +3,6 @@ package christmas.controller;
 import static christmas.constant.Number.EVENT_APPLY_MIN_PRICE;
 import static christmas.constant.message.Notice.NONE;
 
-import camp.nextstep.edu.missionutils.Console;
 import christmas.model.Benefit;
 import christmas.model.Order;
 import christmas.model.VisitDate;
@@ -20,7 +19,10 @@ public class MainController {
 
     public void run() {
         saveInput();
-        checkEventExclusion();
+        if (checkEventExclusion()) {
+            eventExcludedResult();
+            return;
+        }
         printInputResults();
         saveEventResult();
         printEventResults();
@@ -33,11 +35,8 @@ public class MainController {
         orders = inputController.inputOrder();
     }
 
-    private void checkEventExclusion() {
-        if (orders.inquireTotalListPrice() < EVENT_APPLY_MIN_PRICE) {
-            eventExcludedResult();
-            Console.close();
-        }
+    private boolean checkEventExclusion() {
+        return (orders.inquireTotalListPrice() < EVENT_APPLY_MIN_PRICE);
     }
 
     private void eventExcludedResult() {
