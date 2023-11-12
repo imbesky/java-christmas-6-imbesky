@@ -1,5 +1,7 @@
 package christmas.service;
 
+import static christmas.constant.Number.NEGATIVE;
+
 import christmas.constant.Badge;
 
 public class DecemberBadgeEvent implements BadgeEvent {
@@ -12,7 +14,7 @@ public class DecemberBadgeEvent implements BadgeEvent {
     @Override
     public Badge targetBadge() {
         for (Badge badge : Badge.values()) {
-            if (totalBenefitPrice >= badge.getStandardPrice()) {
+            if (totalBenefitPrice * NEGATIVE >= badge.getStandardPrice()) {
                 return badge;
             }
         }
