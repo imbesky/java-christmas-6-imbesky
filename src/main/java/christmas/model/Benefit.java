@@ -13,16 +13,10 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 public class Benefit {
-    private final Map<Discount, Integer> discounts = new HashMap<>();//할인이벤트, 금액
+    private final Map<Discount, Integer> discounts = new HashMap<>();
     private Badge badge;
     private FreeGift freeGift;
     private int totalBenefitPrice = INITIAL_VALUE;
-
-    public Benefit() {
-        for (Discount discount : Discount.values()) {
-            discounts.put(discount, INITIAL_VALUE);
-        }
-    }
 
     public String inquireFreeGiftDetail() {
         return freeGift.getName();
@@ -47,8 +41,8 @@ public class Benefit {
         return badge.getName();
     }
 
-    public void applyDiscount(String discount, int price) {
-        discounts.replace(Discount.findByName(discount), NEGATIVE * price);
+    public void applyDiscount(Discount discount, int price) {
+        discounts.put(discount, NEGATIVE * price);
         totalBenefitPrice -= price;
     }
 
