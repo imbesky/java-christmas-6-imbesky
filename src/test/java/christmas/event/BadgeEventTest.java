@@ -12,7 +12,7 @@ public class BadgeEventTest {
     @Test
     @DisplayName("12월 이벤트 배지 부여: 산타")
     void badgeEventTargetSanta() {
-        final int totalBenefitPrice = 20_000;
+        final int totalBenefitPrice = -20_000;
         final BadgeEvent badgeEvent = new DecemberBadgeEvent(totalBenefitPrice);
 
         final Badge badge = badgeEvent.targetBadge();
@@ -23,7 +23,7 @@ public class BadgeEventTest {
     @Test
     @DisplayName("12월 이벤트 배지 부여: 트리")
     void badgeEventTargetTree() {
-        final int totalBenefitPrice = 10_000;
+        final int totalBenefitPrice = -10_000;
         final BadgeEvent badgeEvent = new DecemberBadgeEvent(totalBenefitPrice);
 
         final Badge badge = badgeEvent.targetBadge();
@@ -34,7 +34,7 @@ public class BadgeEventTest {
     @Test
     @DisplayName("12월 이벤트 배지 부여: 별")
     void badgeEventTargetStar() {
-        final int totalBenefitPrice = 5_000;
+        final int totalBenefitPrice = -5_000;
         final BadgeEvent badgeEvent = new DecemberBadgeEvent(totalBenefitPrice);
 
         final Badge badge = badgeEvent.targetBadge();
