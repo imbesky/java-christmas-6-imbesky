@@ -23,7 +23,6 @@ import static christmas.constant.message.Notice.TOTAL_PRICE_HEADER;
 import static christmas.constant.message.Notice.UNIT;
 import static christmas.constant.message.Notice.WON;
 
-import christmas.constant.Menu;
 import java.text.DecimalFormat;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -53,12 +52,12 @@ public class OutputView {
         System.out.println(String.format(EVENT_NOTICE_TITLE, visitDate));
     }
 
-    public void printOrders(Map<Menu, Integer> orders) {
+    public void printOrders(Map<String, Integer> orders) {
         System.out.println(LINE_DIVIDER);
         System.out.println(ORDERED_MENU_HEADER);
-        for (Entry<Menu, Integer> order : orders.entrySet()) {
+        for (Entry<String, Integer> order : orders.entrySet()) {
             System.out.println(String
-                    .format(ORDER_FORMAT, order.getKey().getName(), order.getValue())
+                    .format(ORDER_FORMAT, order.getKey(), order.getValue())
                     .concat(UNIT));
         }
     }

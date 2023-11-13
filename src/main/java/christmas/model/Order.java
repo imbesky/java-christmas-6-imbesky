@@ -30,8 +30,12 @@ public class Order {
         validateOrder();
     }
 
-    public Map<Menu, Integer> inquireOrders() {
-        return orders;
+    public Map<String, Integer> inquireOrders() {
+        Map<String, Integer> orderMenuNameAndPrice = new HashMap<>();
+        for (Entry<Menu, Integer> order : orders.entrySet()) {
+            orderMenuNameAndPrice.put(order.getKey().getName(), order.getValue());
+        }
+        return orderMenuNameAndPrice;
     }
 
     public Map<MenuType, Integer> numberByMenuType() {
