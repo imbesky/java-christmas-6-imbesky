@@ -1,5 +1,6 @@
 package christmas.controller;
 
+import christmas.constant.MenuType;
 import christmas.model.Benefit;
 import christmas.model.Order;
 import christmas.model.VisitDate;
@@ -12,6 +13,8 @@ import christmas.service.FreeGiftEvent;
 import christmas.service.SpecialDiscountEvent;
 import christmas.service.WeekdayDiscountEvent;
 import christmas.service.WeekendDiscountEvent;
+import java.time.LocalDate;
+import java.util.Map;
 
 public class EventController {
 
@@ -36,14 +39,12 @@ public class EventController {
     }
 
     private void checkDiscount() {
-        checkChristmasDdayDiscount(
-                new ChristmasDdayDiscountEvent(visitDate.inquireVisitDate()));
-        checkWeekdayDiscount(
-                new WeekdayDiscountEvent(visitDate.inquireVisitDate(), orders.inquireOrders()));
-        checkWeekendDiscount(
-                new WeekendDiscountEvent(visitDate.inquireVisitDate(), orders.inquireOrders()));
-        checkSpecialDiscount(
-                new SpecialDiscountEvent(visitDate.inquireVisitDate()));
+        LocalDate date = visitDate.inquireVisitDate();
+        Map<MenuType, Integer> numberByMenuType = orders.numberByMenuType();
+        checkChristmasDdayDiscount(new ChristmasDdayDiscountEvent(date));
+        checkWeekdayDiscount(new WeekdayDiscountEvent(date, numberByMenuType));
+        checkWeekendDiscount(new WeekendDiscountEvent(date, numberByMenuType));
+        checkSpecialDiscount(new SpecialDiscountEvent(date));
     }
 
     private void checkChristmasDdayDiscount(DiscountEvent discountEvent) {

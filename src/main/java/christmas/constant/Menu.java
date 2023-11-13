@@ -25,11 +25,11 @@ public enum Menu {
     RED_WINE("레드와인", BEVERAGE, 60_000),
     CHAMPAGNE("샴페인", BEVERAGE, 25_000);
     private final String name;
-    private final String type;
+    private final MenuType type;
     private final int price;
 
 
-    Menu(String name, String type, int price) {
+    Menu(String name, MenuType type, int price) {
         this.name = name;
         this.type = type;
         this.price = price;
@@ -39,7 +39,7 @@ public enum Menu {
         return name;
     }
 
-    public String getType() {
+    public MenuType getType() {
         return type;
     }
 

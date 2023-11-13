@@ -18,7 +18,7 @@ public class WeekendDiscountTest {
         final Order orders = new Order(Converter.toOrderFormat(order));
         final VisitDate visitDate = new VisitDate("9"); // 토요일
         final DiscountEvent discountEvent = new WeekendDiscountEvent(visitDate.inquireVisitDate(),
-                orders.inquireOrders());
+                orders.numberByMenuType());
 
         final boolean apply = discountEvent.applicable();
         final int price = discountEvent.price();
@@ -34,7 +34,7 @@ public class WeekendDiscountTest {
         final Order orders = new Order(Converter.toOrderFormat(order));
         final VisitDate visitDate = new VisitDate("16"); // 토요일
         final DiscountEvent discountEvent = new WeekendDiscountEvent(visitDate.inquireVisitDate(),
-                orders.inquireOrders());
+                orders.numberByMenuType());
 
         final boolean apply = discountEvent.applicable();
 
@@ -48,7 +48,7 @@ public class WeekendDiscountTest {
         final Order orders = new Order(Converter.toOrderFormat(order));
         final VisitDate visitDate = new VisitDate("25"); // 월요일
         final DiscountEvent discountEvent = new WeekendDiscountEvent(visitDate.inquireVisitDate(),
-                orders.inquireOrders());
+                orders.numberByMenuType());
 
         final boolean apply = discountEvent.applicable();
 

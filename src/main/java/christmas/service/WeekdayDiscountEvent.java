@@ -5,19 +5,22 @@ import static christmas.constant.MenuType.DESSERT;
 import static christmas.constant.Number.INITIAL_VALUE;
 
 import christmas.constant.Discount;
-import christmas.constant.Menu;
+import christmas.constant.MenuType;
 import christmas.util.DayUtil;
 import java.time.LocalDate;
 import java.util.Map;
 
 public class WeekdayDiscountEvent extends DayDiscountEvent {
-    public WeekdayDiscountEvent(LocalDate visitDate, Map<Menu, Integer> orders) {
-        super(visitDate, orders);
+    private final MenuType targetType = DESSERT;
+
+    public WeekdayDiscountEvent(LocalDate visitDate, Map<MenuType, Integer> numberByMenuType) {
+        super(visitDate, numberByMenuType);
     }
 
     @Override
     public boolean applicable() {
-        return (DayUtil.isWeekDay(visitDate) && numberOfTargetMenu(DESSERT) != INITIAL_VALUE);
+        return (DayUtil.isWeekDay(visitDate)
+                && numberByMenuType.get(targetType) != INITIAL_VALUE);
     }
 
     @Override
@@ -27,6 +30,6 @@ public class WeekdayDiscountEvent extends DayDiscountEvent {
 
     @Override
     public int price() {
-        return DISCOUNT_UNIT * numberOfTargetMenu(DESSERT);
+        return DISCOUNT_UNIT * numberByMenuType.get(targetType);
     }
 }

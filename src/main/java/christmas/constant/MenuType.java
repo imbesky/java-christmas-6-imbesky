@@ -1,8 +1,17 @@
 package christmas.constant;
 
-public class MenuType {
-    public final static String APPETIZER = "APPETIZER";
-    public final static String MAIN = "MAIN";
-    public final static String DESSERT = "DESSERT";
-    public final static String BEVERAGE = "BEVERAGE";
+public enum MenuType {
+    APPETIZER("APPETIZER"),
+    MAIN("MAIN"),
+    DESSERT("DESSERT"),
+    BEVERAGE("BEVERAGE");
+    private final String menuType;
+
+    MenuType(String menuType) {
+        this.menuType = menuType;
+    }
+
+    public String getMenuType() {
+        return menuType;
+    }
 }

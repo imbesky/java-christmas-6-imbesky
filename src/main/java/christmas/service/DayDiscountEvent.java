@@ -1,19 +1,18 @@
 package christmas.service;
 
 import christmas.constant.Discount;
-import christmas.constant.Menu;
+import christmas.constant.MenuType;
 import java.time.LocalDate;
 import java.util.Map;
-import java.util.Map.Entry;
 
 public class DayDiscountEvent implements DiscountEvent {
     protected final LocalDate visitDate;
-    protected final Map<Menu, Integer> orders;
+    protected final Map<MenuType, Integer> numberByMenuType;
     protected static final int DISCOUNT_UNIT = 2_023;
 
-    public DayDiscountEvent(LocalDate visitDate, Map<Menu, Integer> orders) {
+    public DayDiscountEvent(LocalDate visitDate, Map<MenuType, Integer> numberByMenuType) {
         this.visitDate = visitDate;
-        this.orders = orders;
+        this.numberByMenuType = numberByMenuType;
     }
 
     @Override
@@ -29,15 +28,5 @@ public class DayDiscountEvent implements DiscountEvent {
     @Override
     public int price() {
         return 0;
-    }
-
-    protected int numberOfTargetMenu(String type) {
-        int number = 0;
-        for (Entry<Menu, Integer> order : orders.entrySet()) {
-            if (order.getKey().getType().equals(type)) {
-                number += order.getValue();
-            }
-        }
-        return number;
     }
 }

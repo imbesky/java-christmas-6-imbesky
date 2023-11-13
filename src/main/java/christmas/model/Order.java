@@ -8,6 +8,7 @@ import static christmas.constant.message.Error.INVALIDATE_ORDER;
 import static christmas.constant.message.Tip.INVALIDATE_FORMAT;
 
 import christmas.constant.Menu;
+import christmas.constant.MenuType;
 import christmas.validator.MenuValidator;
 import christmas.validator.NumberValidator;
 import christmas.validator.OrderValidator;
@@ -31,6 +32,24 @@ public class Order {
 
     public Map<Menu, Integer> inquireOrders() {
         return orders;
+    }
+
+    public Map<MenuType, Integer> numberByMenuType() {
+        Map<MenuType, Integer> numbers = new HashMap<>();
+        for (MenuType menuType : MenuType.values()) {
+            numbers.put(menuType, checkMatchedNumber(menuType));
+        }
+        return numbers;
+    }
+
+    private int checkMatchedNumber(MenuType menuType) {
+        int count = INITIAL_VALUE;
+        for (Entry<Menu, Integer> order : orders.entrySet()) {
+            if (order.getKey().getType().equals(menuType)) {
+                count += order.getValue();
+            }
+        }
+        return count;
     }
 
     public int calculateTotalListPrice() {
