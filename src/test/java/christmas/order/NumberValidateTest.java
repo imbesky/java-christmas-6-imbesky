@@ -13,9 +13,31 @@ public class NumberValidateTest {
     final NumberValidator validator = new NumberValidator();
 
     @Test
-    @DisplayName("개수 검증: 숫자가 아님")
-    void notNumericInput() {
+    @DisplayName("개수 검증: 문자임")
+    void charInput() {
         final String input = "하하하";
+
+        final IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> validator.isNumeric(input));
+
+        assertThat(exception.getMessage().equals(INVALIDATE_ORDER));
+    }
+
+    @Test
+    @DisplayName("개수 검증: 공백")
+    void blankInput() {
+        final String input = " ";
+
+        final IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> validator.isNumeric(input));
+
+        assertThat(exception.getMessage().equals(INVALIDATE_ORDER));
+    }
+
+    @Test
+    @DisplayName("개수 검증: 비어 있음")
+    void emptyInput() {
+        final String input = "";
 
         final IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
                 () -> validator.isNumeric(input));
