@@ -24,7 +24,7 @@ public class Benefit {
     public Map<String, Integer> inquireBenefitDetail() {
         Map<String, Integer> details = new HashMap<>();
         for (Entry<Discount, Integer> discount : discounts.entrySet()) {
-            details.put(discount.getKey().getName(), discount.getValue());
+            details.put(discount.getKey().getName(), NEGATIVE * discount.getValue());
         }
         if (!freeGift.getName().equals(NONE)) {
             details.put(FREE_GIFT_EVENT, NEGATIVE * freeGift.getPrice());
