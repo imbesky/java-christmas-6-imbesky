@@ -7,6 +7,6 @@ public class Format {
     public static final String BENEFIT_DETAIL_FORMAT = "%s: ";
     public static final String DASH = "-";
     public static final String COMMA = ",";
-    public static final String BLANK = "";
-    public static final String SPACE = " ";
+    public static final String BLANK = " ";
+    public static final String EMPTY = "";
 }
