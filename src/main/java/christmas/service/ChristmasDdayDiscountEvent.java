@@ -23,7 +23,7 @@ public class ChristmasDdayDiscountEvent implements DiscountEvent {
     }
 
     @Override
-    public Discount type() {
+    public Discount discountType() {
         return CHRISTMAS_DDAY;
     }
 

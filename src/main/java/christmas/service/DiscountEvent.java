@@ -5,7 +5,7 @@ import christmas.constant.Discount;
 public interface DiscountEvent {
     boolean applicable();
 
-    Discount type();
+    Discount discountType();
 
     int price();
 }

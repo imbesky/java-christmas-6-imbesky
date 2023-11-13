@@ -21,7 +21,7 @@ public class WeekdayDiscountEvent extends DayDiscountEvent {
     }
 
     @Override
-    public Discount type() {
+    public Discount discountType() {
         return WEEKDAY;
     }
 

@@ -22,7 +22,7 @@ public class DayDiscountEvent implements DiscountEvent {
     }
 
     @Override
-    public Discount type() {
+    public Discount discountType() {
         return null;
     }
 
