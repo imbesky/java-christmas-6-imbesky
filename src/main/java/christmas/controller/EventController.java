@@ -25,9 +25,9 @@ public class EventController {
     }
 
     public Benefit checkEvent() {
-        checkFreeGiftEvent(new DecemberFreeGiftEvent(orders.inquireTotalListPrice()));
+        checkFreeGiftEvent(new DecemberFreeGiftEvent(orders.calculateTotalListPrice()));
         checkDiscount();
-        checkBadgeEvent(new DecemberBadgeEvent(benefit.inquireTotalBenefitPrice()));
+        checkBadgeEvent(new DecemberBadgeEvent(benefit.calculateTotalBenefitPrice()));
         return benefit;
     }
 

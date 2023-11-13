@@ -18,13 +18,14 @@ public class MainController {
 
     public void run() {
         saveInput(new InputController());
-        if (checkEventExclusion()) {
-            eventExcludedResult();
+        int totalListPrice = orders.calculateTotalListPrice();
+        if (checkEventExclusion(totalListPrice)) {
+            eventExcludedResult(totalListPrice);
             Console.close();
         }
-        printInputResults();
+        printInputResults(totalListPrice);
         saveEventResult(new EventController(visitDate, orders));
-        printEventResults();
+        printEventResults(totalListPrice);
     }
 
     private void saveInput(InputController inputController) {
@@ -33,25 +34,25 @@ public class MainController {
         orders = inputController.saveOrder();
     }
 
-    private boolean checkEventExclusion() {
-        return (orders.inquireTotalListPrice() < EVENT_APPLY_MIN_PRICE);
+    private boolean checkEventExclusion(int totalListPrice) {
+        return (totalListPrice < EVENT_APPLY_MIN_PRICE);
     }
 
-    private void eventExcludedResult() {
+    private void eventExcludedResult(int totalListPrice) {
         outputView.printEventNoticeTitle(visitDate.inquireVisitDate().getDayOfMonth());
         outputView.printEventExceptionNotice();
         outputView.printOrders(orders.inquireOrders());
-        outputView.printTotalListPrice(orders.inquireTotalListPrice());
+        outputView.printTotalListPrice(totalListPrice);
         outputView.printNoFreeGift();
         outputView.printNoBenefit();
-        outputView.printExpectedBill(orders.inquireTotalListPrice());
+        outputView.printExpectedBill(totalListPrice);
         outputView.printBadge(NONE);
     }
 
-    private void printInputResults() {
+    private void printInputResults(int totalListPrice) {
         outputView.printEventNoticeTitle(visitDate.inquireVisitDate().getDayOfMonth());
         outputView.printOrders(orders.inquireOrders());
-        outputView.printTotalListPrice(orders.inquireTotalListPrice());
+        outputView.printTotalListPrice(totalListPrice);
     }
 
     private void saveEventResult(EventController eventController) {
@@ -66,12 +67,12 @@ public class MainController {
         outputView.printFreeGift(benefit.inquireFreeGiftDetail());
     }
 
-    private void printEventResults() {
+    private void printEventResults(int totalListPrice) {
         printFreeGiftDetail();
         outputView.printBenefitDetail(benefit.inquireBenefitDetail());
-        outputView.printTotalBenefitPrice(benefit.inquireTotalBenefitPrice());
-        outputView.printExpectedBill(orders.inquireTotalListPrice()
-                + benefit.inquireTotalBenefitPrice());
+        int totalBenefitPrice = benefit.calculateTotalBenefitPrice();
+        outputView.printTotalBenefitPrice(totalBenefitPrice);
+        outputView.printExpectedBill(totalListPrice + totalBenefitPrice);
         outputView.printBadge(benefit.inquireBadge());
     }
 }
