@@ -14,6 +14,7 @@ import christmas.service.WeekdayDiscountEvent;
 import christmas.service.WeekendDiscountEvent;
 
 public class EventController {
+
     private final VisitDate visitDate;
     private final Order orders;
     private final Benefit benefit = new Benefit();
@@ -23,57 +24,53 @@ public class EventController {
         this.orders = orders;
     }
 
-
     public Benefit checkEvent() {
-        checkFreeGiftEvent();
+        checkFreeGiftEvent(new DecemberFreeGiftEvent(orders.inquireTotalListPrice()));
         checkDiscount();
-        checkBadgeEvent();
+        checkBadgeEvent(new DecemberBadgeEvent(benefit.inquireTotalBenefitPrice()));
         return benefit;
     }
 
-
-    private void checkFreeGiftEvent() {
-        FreeGiftEvent freeGiftEvent = new DecemberFreeGiftEvent(orders.inquireTotalListPrice());
+    private void checkFreeGiftEvent(FreeGiftEvent freeGiftEvent) {
         benefit.applyFreeGift(freeGiftEvent.targetFreeGift());
     }
 
     private void checkDiscount() {
-        checkChristmasDdayDiscount();
-        checkWeekdayDiscount();
-        checkWeekendDiscount();
-        checkSpecialDiscount();
+        checkChristmasDdayDiscount(
+                new ChristmasDdayDiscountEvent(visitDate.inquireVisitDate()));
+        checkWeekdayDiscount(
+                new WeekdayDiscountEvent(visitDate.inquireVisitDate(), orders.inquireOrders()));
+        checkWeekendDiscount(
+                new WeekendDiscountEvent(visitDate.inquireVisitDate(), orders.inquireOrders()));
+        checkSpecialDiscount(
+                new SpecialDiscountEvent(visitDate.inquireVisitDate()));
     }
 
-    private void checkChristmasDdayDiscount() {
-        DiscountEvent discountEvent = new ChristmasDdayDiscountEvent(visitDate.inquireVisitDate());
+    private void checkChristmasDdayDiscount(DiscountEvent discountEvent) {
         if (discountEvent.applicable()) {
             benefit.applyDiscount(discountEvent.type(), discountEvent.price());
         }
     }
 
-    private void checkWeekdayDiscount() {
-        DiscountEvent discountEvent = new WeekdayDiscountEvent(visitDate.inquireVisitDate(), orders.inquireOrders());
+    private void checkWeekdayDiscount(DiscountEvent discountEvent) {
         if (discountEvent.applicable()) {
             benefit.applyDiscount(discountEvent.type(), discountEvent.price());
         }
     }
 
-    private void checkWeekendDiscount() {
-        DiscountEvent discountEvent = new WeekendDiscountEvent(visitDate.inquireVisitDate(), orders.inquireOrders());
+    private void checkWeekendDiscount(DiscountEvent discountEvent) {
         if (discountEvent.applicable()) {
             benefit.applyDiscount(discountEvent.type(), discountEvent.price());
         }
     }
 
-    private void checkSpecialDiscount() {
-        DiscountEvent discountEvent = new SpecialDiscountEvent(visitDate.inquireVisitDate());
+    private void checkSpecialDiscount(DiscountEvent discountEvent) {
         if (discountEvent.applicable()) {
             benefit.applyDiscount(discountEvent.type(), discountEvent.price());
         }
     }
 
-    private void checkBadgeEvent() {
-        BadgeEvent badgeEvent = new DecemberBadgeEvent(benefit.inquireTotalBenefitPrice());
+    private void checkBadgeEvent(BadgeEvent badgeEvent) {
         benefit.applyBadge(badgeEvent.targetBadge());
     }
 }
