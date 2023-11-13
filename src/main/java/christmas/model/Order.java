@@ -14,10 +14,10 @@ import christmas.validator.OrderValidator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class Order {
-    private final Map<Menu, Integer> orders = new HashMap<>();
-    private int totalListPrice = INITIAL_VALUE;
+    private final Map<Menu, Integer> orders = new HashMap<>(); //메뉴, 개수
 
     public Order(List<String[]> inputOrders) {
         for (String[] order : inputOrders) {
@@ -33,7 +33,11 @@ public class Order {
         return orders;
     }
 
-    public int inquireTotalListPrice() {
+    public int calculateTotalListPrice() {
+        int totalListPrice = INITIAL_VALUE;
+        for (Entry<Menu, Integer> order : orders.entrySet()) {
+            totalListPrice += order.getKey().getPrice() * order.getValue();
+        }
         return totalListPrice;
     }
 
@@ -47,7 +51,7 @@ public class Order {
     private void validateMenu(String menu) {
         MenuValidator validator = new MenuValidator();
         validator.isValidateMenu(menu);
-        validator.isNotDuplicateMenu(this.orders, menu);
+        validator.isNotDuplicateMenu(orders, menu);
     }
 
     private void validateNumber(String number) {
@@ -58,12 +62,11 @@ public class Order {
 
     private void validateOrder() {
         OrderValidator validator = new OrderValidator();
-        validator.isProperOrder(this.orders);
-        validator.inOrderRange(this.orders);
+        validator.isProperOrder(orders);
+        validator.inOrderRange(orders);
     }
 
     private void saveOrder(Menu menu, int number) {
         orders.put(menu, number);
-        totalListPrice += menu.getPrice() * number;
     }
 }

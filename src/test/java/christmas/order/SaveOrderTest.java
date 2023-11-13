@@ -20,7 +20,7 @@ public class SaveOrderTest {
 
         final Order order = new Order(formattedInput);
 
-        assertThat(order.inquireTotalListPrice()).isEqualTo(178_500);
+        assertThat(order.calculateTotalListPrice()).isEqualTo(178_500);
     }
 
     @Test
