@@ -3,6 +3,7 @@ package christmas.controller;
 import static christmas.constant.Number.EVENT_APPLY_MIN_PRICE;
 import static christmas.constant.message.Notice.NONE;
 
+import camp.nextstep.edu.missionutils.Console;
 import christmas.model.Benefit;
 import christmas.model.Order;
 import christmas.model.VisitDate;
@@ -11,25 +12,22 @@ import christmas.view.OutputView;
 public class MainController {
 
     private final OutputView outputView = new OutputView();
-    private InputController inputController;
-    private EventController eventController;
     private VisitDate visitDate;
     private Order orders;
     private Benefit benefit;
 
     public void run() {
-        saveInput();
+        saveInput(new InputController());
         if (checkEventExclusion()) {
             eventExcludedResult();
-            return;
+            Console.close();
         }
         printInputResults();
-        saveEventResult();
+        saveEventResult(new EventController(visitDate, orders));
         printEventResults();
     }
 
-    private void saveInput() {
-        inputController = new InputController();
+    private void saveInput(InputController inputController) {
         outputView.printGreeting();
         visitDate = inputController.saveVisitDate();
         orders = inputController.saveOrder();
@@ -56,8 +54,7 @@ public class MainController {
         outputView.printTotalListPrice(orders.inquireTotalListPrice());
     }
 
-    private void saveEventResult() {
-        eventController = new EventController(visitDate, orders);
+    private void saveEventResult(EventController eventController) {
         benefit = eventController.checkEvent();
     }
 
@@ -73,7 +70,8 @@ public class MainController {
         printFreeGiftDetail();
         outputView.printBenefitDetail(benefit.inquireBenefitDetail());
         outputView.printTotalBenefitPrice(benefit.inquireTotalBenefitPrice());
-        outputView.printExpectedBill(orders.inquireTotalListPrice() + benefit.inquireTotalBenefitPrice());
+        outputView.printExpectedBill(orders.inquireTotalListPrice()
+                + benefit.inquireTotalBenefitPrice());
         outputView.printBadge(benefit.inquireBadge());
     }
 }
