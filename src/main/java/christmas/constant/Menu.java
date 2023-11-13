@@ -47,8 +47,11 @@ public enum Menu {
         return price;
     }
 
-    private static final Map<String, Menu> menus = Collections.unmodifiableMap(
-            Stream.of(values()).collect(Collectors.toMap(Menu -> Menu.getName(), Menu -> Menu)));
+    private static final Map<String, Menu> menus = Collections
+            .unmodifiableMap(Stream
+                    .of(values())
+                    .collect(Collectors
+                            .toMap(Menu -> Menu.getName(), Menu -> Menu)));
 
     public static Menu findByName(String name) {
         return menus.get(name);
