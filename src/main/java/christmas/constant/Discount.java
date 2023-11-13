@@ -16,8 +16,4 @@ public enum Discount {
     public String getName() {
         return name;
     }
-
-    public static Discount findByName(String name) {
-        return CHRISTMAS_DDAY;
-    }
 }

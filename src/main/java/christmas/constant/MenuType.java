@@ -10,8 +10,4 @@ public enum MenuType {
     MenuType(String menuType) {
         this.menuType = menuType;
     }
-
-    public String getMenuType() {
-        return menuType;
-    }
 }
