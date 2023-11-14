@@ -10,7 +10,7 @@ public class SpecialDiscountEvent implements DiscountEvent {
     private final LocalDate visitDate;
     private static final int INITIAL_DISCOUNT_PRICE = 1_000;
 
-    public SpecialDiscountEvent(LocalDate visitDate) {
+    public SpecialDiscountEvent(final LocalDate visitDate) {
         this.visitDate = visitDate;
     }
 

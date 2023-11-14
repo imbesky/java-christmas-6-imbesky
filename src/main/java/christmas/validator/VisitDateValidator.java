@@ -7,7 +7,7 @@ import static christmas.constant.message.Tip.DATE_NOT_IN_RANGE;
 import static christmas.constant.message.Tip.DATE_NOT_NUMERIC;
 
 public class VisitDateValidator {
-    public void isNumeric(String input) {
+    public void isNumeric(final String input) {
         try {
             Integer.parseInt(input);
         } catch (NumberFormatException e) {
@@ -16,7 +16,7 @@ public class VisitDateValidator {
         }
     }
 
-    public void isProperDateRange(String input) {
+    public void isProperDateRange(final String input) {
         int date = Integer.parseInt(input);
         if (date < FIRST || date > THIRTY_FIRST) {
             throw new IllegalArgumentException(INVALIDATE_DATE.getMessage()

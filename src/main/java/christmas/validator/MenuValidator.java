@@ -8,14 +8,14 @@ import christmas.constant.Menu;
 import java.util.Map;
 
 public class MenuValidator {
-    public void isValidateMenu(String input) {
+    public void isValidateMenu(final String input) {
         if (Menu.findByName(input) == null) {
             throw new IllegalArgumentException(INVALIDATE_ORDER.getMessage()
                     .concat(NOT_IN_MENU.getMessage()));
         }
     }
 
-    public void isNotDuplicateMenu(Map<Menu, Integer> orders, String menu) {
+    public void isNotDuplicateMenu(final Map<Menu, Integer> orders, final String menu) {
         if (orders.containsKey(Menu.findByName(menu))) {
             throw new IllegalArgumentException(INVALIDATE_ORDER.getMessage()
                     .concat(DUPLICATE_MENU.getMessage()));

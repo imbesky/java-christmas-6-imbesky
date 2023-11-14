@@ -10,7 +10,7 @@ public class DayDiscountEvent implements DiscountEvent {
     protected final Map<MenuType, Integer> numberByMenuType;
     protected static final int DISCOUNT_UNIT = 2_023;
 
-    public DayDiscountEvent(LocalDate visitDate, Map<MenuType, Integer> numberByMenuType) {
+    public DayDiscountEvent(final LocalDate visitDate, final Map<MenuType, Integer> numberByMenuType) {
         this.visitDate = visitDate;
         this.numberByMenuType = numberByMenuType;
     }

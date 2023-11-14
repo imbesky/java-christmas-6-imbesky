@@ -13,7 +13,7 @@ import java.util.Map;
 public class WeekendDiscountEvent extends DayDiscountEvent {
     private final MenuType targetType = MAIN;
 
-    public WeekendDiscountEvent(LocalDate visitDate, Map<MenuType, Integer> numberByMenuType) {
+    public WeekendDiscountEvent(final LocalDate visitDate, final Map<MenuType, Integer> numberByMenuType) {
         super(visitDate, numberByMenuType);
     }
 

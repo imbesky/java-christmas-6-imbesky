@@ -13,7 +13,7 @@ public class ChristmasDdayDiscountEvent implements DiscountEvent {
     private static final int DISCOUNT_UNIT = 100;
     private static final int INITIAL_DISCOUNT_PRICE = 1_000;
 
-    public ChristmasDdayDiscountEvent(LocalDate visitDate) {
+    public ChristmasDdayDiscountEvent(final LocalDate visitDate) {
         this.visitDate = visitDate;
     }
 

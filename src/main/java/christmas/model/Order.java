@@ -20,7 +20,7 @@ import java.util.Map.Entry;
 public class Order {
     private final Map<Menu, Integer> orders = new HashMap<>(); //메뉴, 개수
 
-    public Order(List<String[]> inputOrders) {
+    public Order(final List<String[]> inputOrders) {
         for (String[] order : inputOrders) {
             validateInputFormat(order);
             validateMenu(order[FIRST_INDEX]);
@@ -46,7 +46,7 @@ public class Order {
         return numbers;
     }
 
-    private int checkMatchedNumber(MenuType menuType) {
+    private int checkMatchedNumber(final MenuType menuType) {
         int count = INITIAL_VALUE;
         for (Entry<Menu, Integer> order : orders.entrySet()) {
             if (order.getKey().getType().equals(menuType)) {
@@ -64,20 +64,20 @@ public class Order {
         return totalListPrice;
     }
 
-    private void validateInputFormat(String[] order) {
+    private void validateInputFormat(final String[] order) {
         if (order.length != PROPER_ORDER_LENGTH) {
             throw new IllegalArgumentException(INVALIDATE_ORDER.getMessage()
                     .concat(INVALIDATE_FORMAT.getMessage()));
         }
     }
 
-    private void validateMenu(String menu) {
+    private void validateMenu(final String menu) {
         final MenuValidator validator = new MenuValidator();
         validator.isValidateMenu(menu);
         validator.isNotDuplicateMenu(orders, menu);
     }
 
-    private void validateNumber(String number) {
+    private void validateNumber(final String number) {
         final NumberValidator validator = new NumberValidator();
         validator.isNumeric(number);
         validator.isInRange(number);
@@ -89,7 +89,7 @@ public class Order {
         validator.inOrderRange(orders);
     }
 
-    private void saveOrder(Menu menu, int number) {
+    private void saveOrder(final Menu menu, final int number) {
         orders.put(menu, number);
     }
 }

@@ -22,7 +22,7 @@ public class EventController {
     private final Order orders;
     private final Benefit benefit = new Benefit();
 
-    public EventController(VisitDate visitDate, Order orders) {
+    public EventController(final VisitDate visitDate, final Order orders) {
         this.visitDate = visitDate;
         this.orders = orders;
     }
@@ -34,7 +34,7 @@ public class EventController {
         return benefit;
     }
 
-    private void checkFreeGiftEvent(FreeGiftEvent freeGiftEvent) {
+    private void checkFreeGiftEvent(final FreeGiftEvent freeGiftEvent) {
         benefit.applyFreeGift(freeGiftEvent.targetFreeGift());
     }
 
@@ -47,31 +47,31 @@ public class EventController {
         checkSpecialDiscount(new SpecialDiscountEvent(date));
     }
 
-    private void checkChristmasDdayDiscount(DiscountEvent discountEvent) {
+    private void checkChristmasDdayDiscount(final DiscountEvent discountEvent) {
         if (discountEvent.applicable()) {
             benefit.applyDiscount(discountEvent.discountType(), discountEvent.price());
         }
     }
 
-    private void checkWeekdayDiscount(DiscountEvent discountEvent) {
+    private void checkWeekdayDiscount(final DiscountEvent discountEvent) {
         if (discountEvent.applicable()) {
             benefit.applyDiscount(discountEvent.discountType(), discountEvent.price());
         }
     }
 
-    private void checkWeekendDiscount(DiscountEvent discountEvent) {
+    private void checkWeekendDiscount(final DiscountEvent discountEvent) {
         if (discountEvent.applicable()) {
             benefit.applyDiscount(discountEvent.discountType(), discountEvent.price());
         }
     }
 
-    private void checkSpecialDiscount(DiscountEvent discountEvent) {
+    private void checkSpecialDiscount(final DiscountEvent discountEvent) {
         if (discountEvent.applicable()) {
             benefit.applyDiscount(discountEvent.discountType(), discountEvent.price());
         }
     }
 
-    private void checkBadgeEvent(BadgeEvent badgeEvent) {
+    private void checkBadgeEvent(final BadgeEvent badgeEvent) {
         benefit.applyBadge(badgeEvent.targetBadge());
     }
 }

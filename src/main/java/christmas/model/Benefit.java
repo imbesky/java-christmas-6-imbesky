@@ -22,7 +22,7 @@ public class Benefit {
     }
 
     public Map<String, Integer> inquireBenefitDetail() {
-        Map<String, Integer> details = new HashMap<>();
+        final Map<String, Integer> details = new HashMap<>();
         for (Entry<Discount, Integer> discount : discounts.entrySet()) {
             details.put(discount.getKey().getName(), NEGATIVE * discount.getValue());
         }
@@ -45,15 +45,15 @@ public class Benefit {
         return badge.getName();
     }
 
-    public void applyDiscount(Discount discount, int price) {
+    public void applyDiscount(final Discount discount, final int price) {
         discounts.put(discount, price);
     }
 
-    public void applyFreeGift(FreeGift freeGift) {
+    public void applyFreeGift(final FreeGift freeGift) {
         this.freeGift = freeGift;
     }
 
-    public void applyBadge(Badge badge) {
+    public void applyBadge(final Badge badge) {
         this.badge = badge;
     }
 }

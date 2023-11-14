@@ -5,7 +5,7 @@ import christmas.constant.FreeGift;
 public class DecemberFreeGiftEvent implements FreeGiftEvent {
     private final int totalListPrice;
 
-    public DecemberFreeGiftEvent(int totalListPrice) {
+    public DecemberFreeGiftEvent(final int totalListPrice) {
         this.totalListPrice = totalListPrice;
     }
 

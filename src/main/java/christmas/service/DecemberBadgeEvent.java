@@ -7,7 +7,7 @@ import christmas.constant.Badge;
 public class DecemberBadgeEvent implements BadgeEvent {
     private final int totalBenefitPrice;
 
-    public DecemberBadgeEvent(int totalBenefitPrice) {
+    public DecemberBadgeEvent(final int totalBenefitPrice) {
         this.totalBenefitPrice = totalBenefitPrice;
     }
 

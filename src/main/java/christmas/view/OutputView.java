@@ -28,7 +28,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 public class OutputView {
-    public void printError(String errorMessage) {
+    public void printError(final String errorMessage) {
         System.out.println(errorMessage);
     }
 
@@ -48,11 +48,11 @@ public class OutputView {
         System.out.println(EVENT_EXCLUSION);
     }
 
-    public void printEventNoticeTitle(int visitDate) {
+    public void printEventNoticeTitle(final int visitDate) {
         System.out.println(String.format(EVENT_NOTICE_TITLE, visitDate));
     }
 
-    public void printOrders(Map<String, Integer> orders) {
+    public void printOrders(final Map<String, Integer> orders) {
         System.out.println(LINE_DIVIDER);
         System.out.println(ORDERED_MENU_HEADER);
         for (Entry<String, Integer> order : orders.entrySet()) {
@@ -62,14 +62,14 @@ public class OutputView {
         }
     }
 
-    public void printTotalListPrice(int totalListPrice) {
+    public void printTotalListPrice(final int totalListPrice) {
         System.out.println(LINE_DIVIDER);
         System.out.println(TOTAL_PRICE_HEADER);
         DecimalFormat price = new DecimalFormat(PRICE_FORMAT);
         System.out.println(price.format(totalListPrice).concat(WON));
     }
 
-    public void printFreeGift(String freeGift) {
+    public void printFreeGift(final String freeGift) {
         System.out.println(LINE_DIVIDER);
         System.out.println(FREE_GIFT_HEADER);
         System.out.println(String
@@ -83,7 +83,7 @@ public class OutputView {
         System.out.println(NONE);
     }
 
-    public void printBenefitDetail(Map<String, Integer> details) {
+    public void printBenefitDetail(final Map<String, Integer> details) {
         System.out.println(LINE_DIVIDER);
         System.out.println(BENEFIT_DETAIL_HEADER);
         DecimalFormat price = new DecimalFormat(PRICE_FORMAT);
@@ -95,7 +95,7 @@ public class OutputView {
         }
     }
 
-    public void printTotalBenefitPrice(int totalBenefitPrice) {
+    public void printTotalBenefitPrice(final int totalBenefitPrice) {
         System.out.println(LINE_DIVIDER);
         System.out.println(TOTAL_BENEFIT_PRICE_HEADER);
         DecimalFormat price = new DecimalFormat(PRICE_FORMAT);
@@ -114,14 +114,14 @@ public class OutputView {
     }
 
 
-    public void printExpectedBill(int bill) {
+    public void printExpectedBill(final int bill) {
         System.out.println(LINE_DIVIDER);
         System.out.println(EXPECTED_BILL_HEADER);
         DecimalFormat price = new DecimalFormat(PRICE_FORMAT);
         System.out.println(price.format(bill).concat(WON));
     }
 
-    public void printBadge(String badge) {
+    public void printBadge(final String badge) {
         System.out.println(LINE_DIVIDER);
         System.out.println(BADGE_HEADER);
         System.out.println(badge);
