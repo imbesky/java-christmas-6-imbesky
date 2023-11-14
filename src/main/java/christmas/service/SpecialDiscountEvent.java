@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 public class SpecialDiscountEvent implements DiscountEvent {
     private final LocalDate visitDate;
-    private final int INITIAL_DISCOUNT_PRICE = 1_000;
+    private static final int INITIAL_DISCOUNT_PRICE = 1_000;
 
     public SpecialDiscountEvent(LocalDate visitDate) {
         this.visitDate = visitDate;

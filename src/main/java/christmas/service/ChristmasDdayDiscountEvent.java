@@ -10,8 +10,8 @@ import java.time.LocalDate;
 
 public class ChristmasDdayDiscountEvent implements DiscountEvent {
     private final LocalDate visitDate;
-    private final int DISCOUNT_UNIT = 100;
-    private final int INITIAL_DISCOUNT_PRICE = 1_000;
+    private static final int DISCOUNT_UNIT = 100;
+    private static final int INITIAL_DISCOUNT_PRICE = 1_000;
 
     public ChristmasDdayDiscountEvent(LocalDate visitDate) {
         this.visitDate = visitDate;
