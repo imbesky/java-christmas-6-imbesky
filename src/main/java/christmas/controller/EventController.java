@@ -39,8 +39,8 @@ public class EventController {
     }
 
     private void checkDiscount() {
-        LocalDate date = visitDate.inquireVisitDate();
-        Map<MenuType, Integer> numberByMenuType = orders.numberByMenuType();
+        final LocalDate date = visitDate.inquireVisitDate();
+        final Map<MenuType, Integer> numberByMenuType = orders.numberByMenuType();
         checkChristmasDdayDiscount(new ChristmasDdayDiscountEvent(date));
         checkWeekdayDiscount(new WeekdayDiscountEvent(date, numberByMenuType));
         checkWeekendDiscount(new WeekendDiscountEvent(date, numberByMenuType));

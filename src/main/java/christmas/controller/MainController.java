@@ -18,7 +18,7 @@ public class MainController {
 
     public void run() {
         saveInput(new InputController());
-        int totalListPrice = orders.calculateTotalListPrice();
+        final int totalListPrice = orders.calculateTotalListPrice();
         if (checkEventExclusion(totalListPrice)) {
             eventExcludedResult(totalListPrice);
             Console.close();
@@ -70,7 +70,7 @@ public class MainController {
     private void printEventResults(int totalListPrice) {
         printFreeGiftDetail();
         outputView.printBenefitDetail(benefit.inquireBenefitDetail());
-        int totalBenefitPrice = benefit.calculateTotalBenefitPrice();
+        final int totalBenefitPrice = benefit.calculateTotalBenefitPrice();
         outputView.printTotalBenefitPrice(totalBenefitPrice);
         outputView.printExpectedBill(totalListPrice + totalBenefitPrice);
         outputView.printBadge(benefit.inquireBadge());

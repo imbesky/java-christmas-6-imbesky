@@ -31,7 +31,7 @@ public class Order {
     }
 
     public Map<String, Integer> inquireOrders() {
-        Map<String, Integer> orderMenuNameAndPrice = new HashMap<>();
+        final Map<String, Integer> orderMenuNameAndPrice = new HashMap<>();
         for (Entry<Menu, Integer> order : orders.entrySet()) {
             orderMenuNameAndPrice.put(order.getKey().getName(), order.getValue());
         }
@@ -39,7 +39,7 @@ public class Order {
     }
 
     public Map<MenuType, Integer> numberByMenuType() {
-        Map<MenuType, Integer> numbers = new HashMap<>();
+        final Map<MenuType, Integer> numbers = new HashMap<>();
         for (MenuType menuType : MenuType.values()) {
             numbers.put(menuType, checkMatchedNumber(menuType));
         }
@@ -72,19 +72,19 @@ public class Order {
     }
 
     private void validateMenu(String menu) {
-        MenuValidator validator = new MenuValidator();
+        final MenuValidator validator = new MenuValidator();
         validator.isValidateMenu(menu);
         validator.isNotDuplicateMenu(orders, menu);
     }
 
     private void validateNumber(String number) {
-        NumberValidator validator = new NumberValidator();
+        final NumberValidator validator = new NumberValidator();
         validator.isNumeric(number);
         validator.isInRange(number);
     }
 
     private void validateOrder() {
-        OrderValidator validator = new OrderValidator();
+        final OrderValidator validator = new OrderValidator();
         validator.isProperOrder(orders);
         validator.inOrderRange(orders);
     }
