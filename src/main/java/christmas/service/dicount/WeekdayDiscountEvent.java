@@ -11,7 +11,8 @@ import java.time.LocalDate;
 import java.util.Map;
 
 public class WeekdayDiscountEvent extends DayDiscountEvent {
-    private final MenuType targetType = DESSERT;
+    private static final Discount DISCOUNT_TYPE = WEEKDAY;
+    private static final MenuType TARGET_TYPE = DESSERT;
 
     public WeekdayDiscountEvent(final LocalDate visitDate, final Map<MenuType, Integer> numberByMenuType) {
         super(visitDate, numberByMenuType);
@@ -20,16 +21,16 @@ public class WeekdayDiscountEvent extends DayDiscountEvent {
     @Override
     public boolean applicable() {
         return (DayUtil.isWeekDay(visitDate)
-                && numberByMenuType.get(targetType) != INITIAL_VALUE);
+                && numberByMenuType.get(TARGET_TYPE) != INITIAL_VALUE);
     }
 
     @Override
     public Discount discountType() {
-        return WEEKDAY;
+        return DISCOUNT_TYPE;
     }
 
     @Override
     public int price() {
-        return DISCOUNT_UNIT * numberByMenuType.get(targetType);
+        return DISCOUNT_TYPE.unitPrice() * numberByMenuType.get(TARGET_TYPE);
     }
 }

@@ -8,7 +8,6 @@ import java.util.Map;
 public class DayDiscountEvent implements DiscountEvent {
     protected final LocalDate visitDate;
     protected final Map<MenuType, Integer> numberByMenuType;
-    protected static final int DISCOUNT_UNIT = 2_023;
 
     public DayDiscountEvent(final LocalDate visitDate, final Map<MenuType, Integer> numberByMenuType) {
         this.visitDate = visitDate;

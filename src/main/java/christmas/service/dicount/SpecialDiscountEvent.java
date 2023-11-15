@@ -7,8 +7,8 @@ import christmas.util.DayUtil;
 import java.time.LocalDate;
 
 public class SpecialDiscountEvent implements DiscountEvent {
+    private static final Discount DISCOUNT_TYPE = SPECIAL;
     private final LocalDate visitDate;
-    private static final int INITIAL_DISCOUNT_PRICE = 1_000;
 
     public SpecialDiscountEvent(final LocalDate visitDate) {
         this.visitDate = visitDate;
@@ -21,11 +21,11 @@ public class SpecialDiscountEvent implements DiscountEvent {
 
     @Override
     public Discount discountType() {
-        return SPECIAL;
+        return DISCOUNT_TYPE;
     }
 
     @Override
     public int price() {
-        return INITIAL_DISCOUNT_PRICE;
+        return DISCOUNT_TYPE.initialPrice();
     }
 }
