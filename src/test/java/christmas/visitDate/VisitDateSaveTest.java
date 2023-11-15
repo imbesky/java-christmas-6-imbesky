@@ -1,7 +1,7 @@
 package christmas.visitDate;
 
-import static christmas.constant.StandardDate.MONTH;
-import static christmas.constant.StandardDate.YEAR;
+import static christmas.constant.StandardDate.EVENT_MONTH;
+import static christmas.constant.StandardDate.EVENT_YEAR;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import christmas.model.VisitDate;
@@ -19,7 +19,7 @@ public class VisitDateSaveTest {
 
         visitDate = new VisitDate(input);
 
-        LocalDate expection = LocalDate.of(YEAR, MONTH, Integer.parseInt(input));
+        LocalDate expection = LocalDate.of(EVENT_YEAR, EVENT_MONTH, Integer.parseInt(input));
         assertThat(visitDate.inquireVisitDate()).isEqualTo(expection);
     }
 }

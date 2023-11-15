@@ -1,7 +1,7 @@
 package christmas.model;
 
-import static christmas.constant.StandardDate.MONTH;
-import static christmas.constant.StandardDate.YEAR;
+import static christmas.constant.StandardDate.EVENT_MONTH;
+import static christmas.constant.StandardDate.EVENT_YEAR;
 
 import christmas.validator.VisitDateValidator;
 import java.time.LocalDate;
@@ -11,7 +11,7 @@ public class VisitDate {
 
     public VisitDate(final String date) {
         validate(date);
-        visitDate = LocalDate.of(YEAR, MONTH, Integer.parseInt(date));
+        visitDate = LocalDate.of(EVENT_YEAR, EVENT_MONTH, Integer.parseInt(date));
     }
 
     public LocalDate inquireVisitDate() {
