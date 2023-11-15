@@ -1,8 +1,13 @@
 package christmas.order;
 
+import static christmas.constant.MenuType.APPETIZER;
+import static christmas.constant.MenuType.BEVERAGE;
+import static christmas.constant.MenuType.DESSERT;
+import static christmas.constant.MenuType.MAIN;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import christmas.constant.Menu;
+import christmas.constant.MenuType;
 import christmas.model.Order;
 import christmas.util.Converter;
 import java.util.HashMap;
@@ -36,5 +41,20 @@ public class SaveOrderTest {
         orders.put(Menu.findByName("샴페인"), 1);
         orders.put(Menu.findByName("초코케이크"), 1);
         assertThat(order.inquireOrders().equals(orders));
+    }
+
+    @Test
+    @DisplayName("메뉴 타입별 개수 반환 테스트")
+    void numberByMenuTypeTest() {
+        final String input = "티본스테이크-1,타파스-1,초코케이크-1,레드와인-1";
+
+        final Order order = new Order(Converter.toOrderFormat(input));
+
+        final Map<MenuType, Integer> numbersByType = new HashMap<>();
+        numbersByType.put(APPETIZER, 1);
+        numbersByType.put(MAIN, 1);
+        numbersByType.put(DESSERT, 1);
+        numbersByType.put(BEVERAGE, 1);
+        assertThat(order.numberByMenuType()).isEqualTo(numbersByType);
     }
 }
