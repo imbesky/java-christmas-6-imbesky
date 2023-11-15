@@ -1,12 +1,13 @@
 package christmas.controller;
 
-import static christmas.constant.Number.EVENT_APPLY_MIN_PRICE;
 import static christmas.constant.message.Notice.NONE;
 
 import camp.nextstep.edu.missionutils.Console;
 import christmas.model.Benefit;
 import christmas.model.Order;
 import christmas.model.VisitDate;
+import christmas.service.DecemberEvent;
+import christmas.service.Event;
 import christmas.view.OutputView;
 
 public class MainController {
@@ -35,7 +36,8 @@ public class MainController {
     }
 
     private boolean checkEventExclusion(final int totalListPrice) {
-        return (totalListPrice < EVENT_APPLY_MIN_PRICE);
+        final Event event = new DecemberEvent(totalListPrice);
+        return event.applicable();
     }
 
     private void eventExcludedResult(final int totalListPrice) {
