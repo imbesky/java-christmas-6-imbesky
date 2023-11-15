@@ -20,7 +20,7 @@ public class DecemberEvent implements Event {
 
     @Override
     public boolean applicable() {
-        return totalListPrice < EVENT_APPLY_MIN_PRICE
+        return totalListPrice >= EVENT_APPLY_MIN_PRICE
                 && DayUtil.isBetween(START_DATE, END_DATE, visitDate);
     }
 }
