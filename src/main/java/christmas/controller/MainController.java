@@ -37,7 +37,7 @@ public class MainController {
 
     private boolean checkEventExclusion(final int totalListPrice) {
         final Event event = new DecemberEvent(visitDate.inquireVisitDate(), totalListPrice);
-        return event.applicable();
+        return !event.applicable();
     }
 
     private void eventExcludedResult(final int totalListPrice) {
