@@ -1,4 +1,4 @@
-package christmas.service;
+package christmas.service.badge;
 
 import christmas.constant.Badge;
 

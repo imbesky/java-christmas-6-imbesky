@@ -3,8 +3,8 @@ package christmas.event;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import christmas.constant.Badge;
-import christmas.service.BadgeEvent;
-import christmas.service.DecemberBadgeEvent;
+import christmas.service.badge.BadgeEvent;
+import christmas.service.badge.DecemberBadgeEvent;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

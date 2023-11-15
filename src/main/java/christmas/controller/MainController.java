@@ -6,8 +6,8 @@ import camp.nextstep.edu.missionutils.Console;
 import christmas.model.Benefit;
 import christmas.model.Order;
 import christmas.model.VisitDate;
-import christmas.service.DecemberEvent;
-import christmas.service.Event;
+import christmas.service.event.DecemberEvent;
+import christmas.service.event.Event;
 import christmas.view.OutputView;
 
 public class MainController {

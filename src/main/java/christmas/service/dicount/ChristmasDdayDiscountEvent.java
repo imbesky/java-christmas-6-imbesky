@@ -1,4 +1,4 @@
-package christmas.service;
+package christmas.service.dicount;
 
 import static christmas.constant.Discount.CHRISTMAS_DDAY;
 import static christmas.constant.StandardDate.DDAY_DISCOUNT_END_DATE;

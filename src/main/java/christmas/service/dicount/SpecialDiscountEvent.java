@@ -1,4 +1,4 @@
-package christmas.service;
+package christmas.service.dicount;
 
 import static christmas.constant.Discount.SPECIAL;
 

@@ -1,4 +1,4 @@
-package christmas.service;
+package christmas.service.badge;
 
 import static christmas.constant.Number.NEGATIVE;
 

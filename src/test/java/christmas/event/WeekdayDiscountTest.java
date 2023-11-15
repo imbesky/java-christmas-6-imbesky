@@ -4,8 +4,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import christmas.model.Order;
 import christmas.model.VisitDate;
-import christmas.service.DiscountEvent;
-import christmas.service.WeekdayDiscountEvent;
+import christmas.service.dicount.DiscountEvent;
+import christmas.service.dicount.WeekdayDiscountEvent;
 import christmas.util.Converter;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

@@ -1,4 +1,4 @@
-package christmas.service;
+package christmas.service.dicount;
 
 import static christmas.constant.Discount.WEEKEND;
 import static christmas.constant.MenuType.MAIN;

@@ -3,8 +3,8 @@ package christmas.event;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import christmas.model.VisitDate;
-import christmas.service.DiscountEvent;
-import christmas.service.SpecialDiscountEvent;
+import christmas.service.dicount.DiscountEvent;
+import christmas.service.dicount.SpecialDiscountEvent;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

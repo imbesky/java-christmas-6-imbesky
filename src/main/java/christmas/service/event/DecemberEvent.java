@@ -1,4 +1,4 @@
-package christmas.service;
+package christmas.service.event;
 
 import static christmas.constant.Number.EVENT_APPLY_MIN_PRICE;
 

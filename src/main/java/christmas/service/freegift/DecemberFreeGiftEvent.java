@@ -1,4 +1,4 @@
-package christmas.service;
+package christmas.service.freegift;
 
 import christmas.constant.FreeGift;
 
