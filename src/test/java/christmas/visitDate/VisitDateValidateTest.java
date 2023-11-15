@@ -13,7 +13,7 @@ public class VisitDateValidateTest {
     final VisitDateValidator validator = new VisitDateValidator();
 
     @Test
-    @DisplayName("방문 날짜 검증: 유요한 날짜(숫자)")
+    @DisplayName("방문 날짜 검증: 유효한 날짜(숫자)")
     void numericDate() {
         final String input = "12";
 
